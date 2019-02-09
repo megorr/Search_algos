@@ -34,7 +34,7 @@ int linear_search(X *begin, X *end, X value)
     return -1;
 }
 
-template<typename X>
+template<typename X> //Бинарный поиск
 int binary_search(X *begin, X *end, X *value)
 {
 	X *curr_begin = begin;
