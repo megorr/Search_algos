@@ -1,16 +1,18 @@
 #include <iostream>
 #include "Searches.h"
 
+using namespace std;
+
 #define SIZE 300
 #define TIMING
 
 #ifdef TIMING //Макрос для измерения времени выполнения участка программы
-#define INIT_TIMER auto start = std::chrono::steady_clock::now();
-#define START_TIMER  start = std::chrono::steady_clock::now();
-#define STOP_TIMER(name, time)  time = std::chrono::duration_cast<std::chrono::nanoseconds>\
-								(std::chrono::steady_clock::now()-start).count();\
-								std::cout << "RUNTIME of " << name << ": " << \
-								time << " ns " << "or " << time/1000000 << "ms" <<std::endl;\
+#define INIT_TIMER auto start = chrono::steady_clock::now();
+#define START_TIMER  start = chrono::steady_clock::now();
+#define STOP_TIMER(name, time)  time = chrono::duration_cast<chrono::nanoseconds>\
+								(chrono::steady_clock::now()-start).count();\
+								cout << "RUNTIME of " << name << ": " << \
+								time << " ns " << "or " << time/1000000 << "ms" <<endl;\
 		
 #else
 #define INIT_TIMER
@@ -29,8 +31,8 @@ int main()
 
     for (int i = 0; i < SIZE; ++i)
     {
-        if(arr[linear_search(arr, &arr[SIZE], &i)] == i && arr[binary_search(arr, &arr[SIZE], &i)] == i) std::cout << "Поиск верный!" << i << "\n";
-        else std::cout << "Поиск неверный!\n";
+        if(arr[linear_search(arr, &arr[SIZE], &i)] == i && arr[binary_search(arr, &arr[SIZE], &i)] == i) cout << "Поиск верный!" << i << endl;
+        else cout << "Поиск неверный!" << endl;
     }
 
     return 0;
